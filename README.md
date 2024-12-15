@@ -34,20 +34,22 @@ CPS Academy seeks a developer to build a web application for course management, 
 
 ### **Role Management**
 
-Define three user roles with specific permissions:
+Added a power as role field in user with 3 values (member, student, technical) with specific permissions:
 
 1. **Normal User**:
    - Limited access to course content.
    - Can only view course titles and brief descriptions (no access to detailed course or module information).
+   - member role can only view rating learderboard and courses section
 
 2. **Student**:
    - Access to full course details, including the module name, description, number of classes, and topics covered.
    - Can view course materials and related content.
+   - can view class schedule section
 
 3. **Social Media Manager / Developer**:
-   - Access to all course and module details, along with additional data such as analytics, promotional content, and other relevant course information.
-   - Admin-level permissions for managing course details and user roles.
-
+   -- social media manager developer as technical role is added  
+   -- They can add course and class schedule with details
+   -- Admin verification is required for further actions
 ---
 
 ### **Course Details and Modules**
@@ -118,20 +120,8 @@ Strapi will be used to manage the backend data for courses, users, and roles. Th
    - Simple and clear navigation between pages (e.g., Home, Course Listings, Course Details, Login, Profile).
    - Role-based conditional rendering of menu items (e.g., only Admin can access user management features).
 
-- **Authentication Feedback**:
-   - Display feedback messages for users when they log in, register, or encounter an error during authentication.
-   - Redirect users based on their role (e.g., students should be redirected to the course listings page, while social media managers might be redirected to analytics).
-
----
-
-## **Timeline**
-
-- **Deadline**: The project should be completed by **15 December**.
-- **Project Phases**:
-   1. **Phase 1 (Week 1)**: Set up the Next.js frontend and Strapi backend, implement authentication, user registration, and login functionality.
-   2. **Phase 2 (Week 2)**: Develop role management system, including role-specific views and API integration.
-   3. **Phase 3 (Week 3)**: Implement course and module management features, dynamic content rendering, and role-based access.
-   4. **Phase 4 (Week 4)**: Test and debug the application, ensure responsive design, and perform cross-browser testing.
+- **Codeforces Leaderboard**:
+   - There is a ranked dashboard added with users codeforces handle with codeforces api which will rank them according to max rating
 
 ---
 
@@ -140,27 +130,13 @@ Strapi will be used to manage the backend data for courses, users, and roles. Th
 To submit the project, the developer must complete the following steps:
 
 1. **GitHub Repository**:
-   - Create a GitHub repository for the project.
-   - Ensure the repository includes:
-     - Well-organized folder structure.
-     - Clear and concise commit messages.
-     - A `README.md` file containing:
-       - Project overview.
-       - Installation and setup instructions.
-       - Documentation for the features implemented.
-       - Dependencies and versions used.
-       - Example `.env` file for environment configuration (with placeholders for sensitive keys or settings).
+   https://github.com/mashiourcse/cps_internship_project
 
 2. **Video Demonstration**:
-   - Record a video demonstrating the following:
-     - Overview of the project’s functionality.
-     - User authentication and role-based login.
-     - Access to course and module details based on roles (Normal User, Student, Social Media Manager, Developer).
-     - Any additional features or highlights of the project.
-   - Provide a link to the recorded video (upload to YouTube, Google Drive, or other accessible platforms).
+   
 
 ---
 
 ## **Conclusion**
 
-This project will deliver a fully functional course management platform with secure authentication, dynamic role-based access, and a responsive frontend. By utilizing **Next.js**, **Strapi**, and **Tailwind CSS**, the platform will offer a clean and user-friendly experience, with the flexibility to expand and add more features in the future.
+This project will deliver a working template for course management platform with secure authentication, dynamic role-based access, and a responsive frontend. By utilizing **Next.js**, **Strapi**, and **Tailwind CSS**, the platform will offer a clean and user-friendly experience, with the flexibility to expand and add more features in the future.
