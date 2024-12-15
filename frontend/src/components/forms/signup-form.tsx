@@ -61,6 +61,17 @@ export function SignupForm() {
               />
               <ZodErrors error={formState?.zodErrors?.email} />
             </div>
+            
+            {/* <div className="space-y-2">
+              <Label htmlFor="codeforces">Codeforces Handle</Label>
+              <Input
+                id="codeforces"
+                name="codeforces"
+                type="text"
+                placeholder="enter your codeforces handle"
+              />
+              <ZodErrors error={formState?.zodErrors?.codeforces} />
+            </div> */}
 
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>

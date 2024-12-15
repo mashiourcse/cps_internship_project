@@ -133,9 +133,8 @@ To submit the project, the developer must complete the following steps:
    https://github.com/mashiourcse/cps_internship_project
 
 2. **Video Demonstration**:
+   https://drive.google.com/file/d/16zPXYQXuUFa8HM-a3EgXJ4lTFBEyEEK4/view?usp=sharing
    
-
----
 
 ## **Conclusion**
 

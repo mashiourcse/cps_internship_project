@@ -10,6 +10,19 @@ export default async function UserTablePage(): Promise<JSX.Element> {
 
   const users: User[] = await getUsersNameCodeforces();
 
+  function getTitleByRating(rating: number ): string {
+    if (rating >= 4000) return "Tourist";
+    if (rating >= 3000) return "Legendary Grandmaster";
+    if (rating >= 2600) return "International Grandmaster";
+    if (rating >= 2400) return "Grandmaster";
+    if (rating >= 2300) return "International Master";
+    if (rating >= 2100) return "Master";
+    if (rating >= 1900) return "Candidate Master";
+    if (rating >= 1600) return "Expert";
+    if (rating >= 1400) return "Specialist";
+    if (rating >= 1200) return "Pupil";
+    return "Newbie";
+  }
  
   const usersWithMaxRating = await Promise.all(
     users
@@ -32,6 +45,7 @@ export default async function UserTablePage(): Promise<JSX.Element> {
               <th className="border border-gray-300 px-4 py-2 text-left">SL</th>
               <th className="border border-gray-300 px-4 py-2 text-left">Username</th>
               <th className="border border-gray-300 px-4 py-2 text-left">Codeforces</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Title</th>
               <th className="border border-gray-300 px-4 py-2 text-left">Max Rating</th>
             </tr>
           </thead>
@@ -49,6 +63,9 @@ export default async function UserTablePage(): Promise<JSX.Element> {
                   >
                     {user.codeforces}
                   </a>
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  { (user.maxRating!==null)? getTitleByRating(user.maxRating) : "Unrated"}
                 </td>
                 <td className="border border-gray-300 px-4 py-2">
                   {user.maxRating ?? "Not Available"}

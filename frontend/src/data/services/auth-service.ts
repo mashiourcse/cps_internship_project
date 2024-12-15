@@ -4,6 +4,7 @@ interface RegisterUserProps {
   username: string;
   password: string;
   email: string;
+
 }
 
 interface LoginUserProps {
@@ -54,7 +55,8 @@ export async function loginUserService(userData: LoginUserProps) {
 
 export async function passwordRecoveryService(data: { email: string }) {
   try {
-    const response = await fetch('http://localhost:1337/api/auth/forgot-password', {
+    const url = new URL("/api/auth/forgot-password", baseUrl);
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

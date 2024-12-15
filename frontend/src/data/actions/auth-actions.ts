@@ -27,6 +27,11 @@ const schemaRegister = z.object({
   email: z.string().email({
     message: "Please enter a valid email address",
   }),
+
+  // codeforces: z.string().min(1).max(20, {
+  //   message: "Codeforces handle must be between 1 and 20 characters",
+  // }),
+  
 });
 
 export async function registerUserAction(prevState: any, formData: FormData) {
@@ -34,6 +39,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
     username: formData.get("username"),
     password: formData.get("password"),
     email: formData.get("email"),
+    // codeforces: formData.get("codeforces"),
   });
 
   if (!validatedFields.success) {

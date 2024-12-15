@@ -147,14 +147,36 @@ export async function getUsersNameCodeforces() {
   return response.json();
 }
 
-export async function getCodeforcesInfo(handle:string) {
+export async function getCodeforcesInfo(handle: string): Promise<number | null> {
   const url = `https://codeforces.com/api/user.info?handles=${handle}`;
   
-  const response = await fetch(url);
-    const data = await response.json();
-  return data?.result[0]?.maxRating;
+  try {
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
 
+    const data = await response.json();
+    
+    if (data?.status !== "OK" || !Array.isArray(data.result) || data.result.length === 0) {
+      throw new Error(`Invalid response from API for handle: ${handle}`);
+    }
+
+    return data.result[0].maxRating || null;
+  } catch (error) {
+    // Type guard for error
+    if (error instanceof Error) {
+      console.error(`Error fetching Codeforces info: ${error.message}`);
+    } else {
+      console.error(`Unknown error occurred: ${error}`);
+    }
+    return null; // Return null in case of an error
+  }
 }
+
+
+
 export async function getSummaries(queryString: string, currentPage: number) {
   const PAGE_SIZE = 4;
 
